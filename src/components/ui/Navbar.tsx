@@ -15,7 +15,7 @@ export default function Navbar() {
 
   useEffect(() => {
     setMounted(true);
-    const onScroll = () => setScrolled(window.scrollY > 30);
+    const onScroll = () => setScrolled(window.scrollY > 40);
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
@@ -33,23 +33,22 @@ export default function Navbar() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-[var(--bg)]/90 backdrop-blur-md border-b border-[var(--border)]"
-          : "bg-transparent"
+          ? "bg-[var(--bg)]/80 backdrop-blur-xl border-b border-[var(--border)]"
+          : ""
       }`}
     >
-      <nav className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-        {/* Logo */}
-        <a href="#" className="font-heading font-bold text-xl text-[var(--text)]">
+      <div className="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
+        <a href="#" className="font-heading font-bold text-lg text-[var(--text)]">
           ph<span className="text-[var(--accent)]">.</span>
         </a>
 
-        {/* Desktop links */}
-        <ul className="hidden md:flex items-center gap-7">
+        {/* Desktop */}
+        <ul className="hidden md:flex items-center gap-8">
           {links.map((l) => (
             <li key={l.href}>
               <a
                 href={l.href}
-                className="text-sm text-[var(--muted)] hover:text-[var(--accent)] transition-colors duration-200"
+                className="text-sm text-[var(--muted)] hover:text-[var(--text)] transition-colors duration-200"
               >
                 {l.label}
               </a>
@@ -57,11 +56,10 @@ export default function Navbar() {
           ))}
         </ul>
 
-        {/* Controls */}
-        <div className="flex items-center gap-2.5">
+        <div className="flex items-center gap-2">
           <button
             onClick={toggleLang}
-            className="text-xs font-mono font-semibold px-2.5 py-1.5 rounded-lg border border-[var(--border)] text-[var(--muted)] hover:border-[var(--accent)] hover:text-[var(--accent)] transition-all duration-200"
+            className="text-xs font-mono font-medium px-2.5 py-1.5 rounded-lg border border-[var(--border)] text-[var(--muted)] hover:text-[var(--accent)] hover:border-[var(--accent)] transition-all duration-200"
           >
             {lang === "pt" ? "EN" : "PT"}
           </button>
@@ -70,38 +68,36 @@ export default function Navbar() {
             <button
               onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
               aria-label="Toggle theme"
-              className="p-2 rounded-lg border border-[var(--border)] text-[var(--muted)] hover:border-[var(--accent)] hover:text-[var(--accent)] transition-all duration-200"
+              className="p-2 rounded-lg border border-[var(--border)] text-[var(--muted)] hover:text-[var(--accent)] hover:border-[var(--accent)] transition-all duration-200"
             >
-              {theme === "dark" ? <Sun size={15} /> : <Moon size={15} />}
+              {theme === "dark" ? <Sun size={14} /> : <Moon size={14} />}
             </button>
           )}
 
           <button
             className="md:hidden p-2 text-[var(--muted)]"
             onClick={() => setOpen(!open)}
-            aria-label="Toggle menu"
           >
-            {open ? <X size={20} /> : <Menu size={20} />}
+            {open ? <X size={18} /> : <Menu size={18} />}
           </button>
         </div>
-      </nav>
+      </div>
 
-      {/* Mobile menu */}
       <AnimatePresence>
         {open && (
           <motion.div
-            initial={{ opacity: 0, y: -8 }}
+            initial={{ opacity: 0, y: -6 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -8 }}
-            transition={{ duration: 0.2 }}
-            className="md:hidden bg-[var(--bg)] border-b border-[var(--border)] px-6 pb-5"
+            exit={{ opacity: 0, y: -6 }}
+            transition={{ duration: 0.18 }}
+            className="md:hidden bg-[var(--bg)] border-b border-[var(--border)] px-6 pb-5 pt-4"
           >
-            <ul className="flex flex-col gap-4 pt-4">
+            <ul className="flex flex-col gap-4">
               {links.map((l) => (
                 <li key={l.href}>
                   <a
                     href={l.href}
-                    className="text-sm text-[var(--muted)] hover:text-[var(--accent)] transition-colors"
+                    className="text-sm text-[var(--muted)] hover:text-[var(--text)] transition-colors"
                     onClick={() => setOpen(false)}
                   >
                     {l.label}

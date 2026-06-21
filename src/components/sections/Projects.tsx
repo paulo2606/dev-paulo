@@ -54,44 +54,44 @@ export default function Projects() {
   const { t, lang } = useLang();
 
   return (
-    <section id="projects" className="py-24 px-6">
-      <div className="max-w-6xl mx-auto">
+    <section id="projects" className="py-24 px-6 border-t border-[var(--border)]">
+      <div className="max-w-5xl mx-auto">
         <span className="text-xs font-mono text-[var(--accent)]">{t.projects.badge}</span>
-        <h2 className="font-heading text-3xl md:text-4xl font-bold text-[var(--text)] mt-2 mb-14">
+        <h2 className="font-heading text-3xl font-bold text-[var(--text)] mt-2 mb-12">
           {t.projects.title}
         </h2>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {projects.map((project, i) => (
             <motion.article
               key={project.title}
-              className="bg-[var(--bg-card)] border border-[var(--border)] rounded-2xl p-6 hover:border-[var(--accent)]/50 transition-all duration-300 group flex flex-col"
-              initial={{ opacity: 0, y: 20 }}
+              className="p-6 rounded-2xl border border-[var(--border)] hover:border-[var(--accent)]/50 transition-colors duration-300 group flex flex-col"
+              initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: i * 0.08 }}
+              transition={{ duration: 0.4, delay: i * 0.07 }}
             >
-              <div className="flex items-start justify-between mb-4">
-                <h3 className="font-heading font-bold text-[var(--text)] group-hover:text-[var(--accent)] transition-colors">
+              <div className="flex items-start justify-between mb-3">
+                <h3 className="font-heading font-bold text-[var(--text)] group-hover:text-[var(--accent)] transition-colors text-sm">
                   {project.title}
                 </h3>
                 {project.wip && (
-                  <span className="flex items-center gap-1 text-[10px] font-mono text-[var(--accent)] bg-[var(--accent)]/10 px-2 py-0.5 rounded-full border border-[var(--accent)]/20 whitespace-nowrap ml-2">
+                  <span className="flex items-center gap-1 text-[10px] font-mono text-[var(--muted)] whitespace-nowrap ml-2">
                     <Wrench size={9} />
                     {t.projects.wipLabel}
                   </span>
                 )}
               </div>
 
-              <p className="text-sm text-[var(--muted)] leading-relaxed flex-1 mb-5">
+              <p className="text-xs text-[var(--muted)] leading-relaxed flex-1 mb-4">
                 {lang === "pt" ? project.description.pt : project.description.en}
               </p>
 
-              <div className="flex flex-wrap gap-1.5 mb-5">
+              <div className="flex flex-wrap gap-1.5 mb-4">
                 {project.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="text-xs font-mono px-2.5 py-0.5 rounded-lg bg-[var(--bg)] border border-[var(--border)] text-[var(--muted)]"
+                    className="text-xs font-mono px-2 py-0.5 rounded-lg border border-[var(--border)] text-[var(--muted)]"
                   >
                     {tag}
                   </span>
@@ -110,7 +110,7 @@ export default function Projects() {
                     {t.projects.githubCta}
                   </a>
                 ) : (
-                  <span className="flex items-center gap-1.5 text-xs text-[var(--muted)] opacity-40">
+                  <span className="flex items-center gap-1.5 text-xs text-[var(--muted)] opacity-35 cursor-not-allowed">
                     <GithubIcon size={13} />
                     {t.projects.githubCta}
                   </span>

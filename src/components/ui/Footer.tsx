@@ -15,13 +15,12 @@ export default function Footer() {
 
   return (
     <footer className="border-t border-[var(--border)] py-8 px-6">
-      <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-        <p className="text-sm text-[var(--muted)] flex items-center gap-1.5">
+      <div className="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+        <p className="text-xs text-[var(--muted)] flex items-center gap-1.5">
           {t.footer.made}
-          <Heart size={13} className="text-[var(--accent)] fill-[var(--accent)]" />
+          <Heart size={11} className="text-[var(--accent)] fill-[var(--accent)]" />
           {t.footer.by}
         </p>
-
         <div className="flex items-center gap-5">
           {socials.map(({ href, icon: Icon, label }) => (
             <a
@@ -32,7 +31,7 @@ export default function Footer() {
               aria-label={label}
               className="text-[var(--muted)] hover:text-[var(--accent)] transition-colors duration-200"
             >
-              <Icon size={18} />
+              <Icon size={16} />
             </a>
           ))}
         </div>
