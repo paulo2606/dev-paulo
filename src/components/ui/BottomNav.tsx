@@ -55,18 +55,17 @@ export default function BottomNav() {
   useEffect(() => setMounted(true), []);
 
   useEffect(() => {
-    const noScroll = (e: Event) => e.preventDefault();
+    const isMobile = () => window.innerWidth < 768;
+    const noScroll = (e: WheelEvent) => { if (!isMobile()) e.preventDefault(); };
     const noKey = (e: KeyboardEvent) => {
-      if (["ArrowUp", "ArrowDown", "PageUp", "PageDown", " ", "Home", "End"].includes(e.key)) {
+      if (!isMobile() && ["ArrowUp", "ArrowDown", "PageUp", "PageDown", " ", "Home", "End"].includes(e.key)) {
         e.preventDefault();
       }
     };
     window.addEventListener("wheel", noScroll, { passive: false });
-    window.addEventListener("touchmove", noScroll, { passive: false });
     document.addEventListener("keydown", noKey);
     return () => {
       window.removeEventListener("wheel", noScroll);
-      window.removeEventListener("touchmove", noScroll);
       document.removeEventListener("keydown", noKey);
     };
   }, []);

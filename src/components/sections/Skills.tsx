@@ -94,11 +94,11 @@ export default function Skills() {
   const lines = TITLE_LINES[lang];
 
   return (
-    <section id="skills" className="h-screen overflow-hidden pt-16 md:pt-24 px-6 md:px-14 border-t border-[var(--border)] flex flex-col justify-center">
+    <section id="skills" className="min-h-screen md:h-screen md:overflow-hidden pt-20 md:pt-24 px-6 md:px-14 border-t border-[var(--border)] flex flex-col justify-center pb-10 md:pb-0">
       <div className="max-w-5xl mx-auto w-full">
 
         {/* Badge */}
-        <div className="relative mb-10">
+        <div className="relative mb-8 md:mb-10">
           <span
             aria-hidden="true"
             className="absolute -top-3 -left-1 font-heading font-black leading-none select-none pointer-events-none text-[var(--text)]"
@@ -109,39 +109,52 @@ export default function Skills() {
           <span className="relative text-xs font-mono text-[var(--accent)]">{t.skills.badge}</span>
         </div>
 
-        {/* Layout: título lateral | grid */}
-        <div className="flex items-center gap-12">
+        {/* Mobile: título acima + grid 3 colunas | Desktop: título lateral + grid 4 colunas */}
+        <div className="flex flex-col md:flex-row md:items-center gap-8 md:gap-12">
 
           {/* ── Título quebrado por sílabas ── */}
           <motion.div
-            className="flex-shrink-0 select-none leading-[0.82] tracking-[-0.04em] font-heading font-black"
+            className="select-none font-heading font-black"
+            style={{ lineHeight: 0.85, letterSpacing: "-0.04em" }}
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, ease: "easeOut" }}
           >
-            {lines.map((line, i) => (
-              <div
-                key={line}
-                style={{
-                  fontSize: "clamp(3.8rem, 7.5vw, 6.5rem)",
-                  color: i === lines.length - 1 ? "var(--accent)" : "var(--text)",
-                }}
-              >
-                {line}
-              </div>
-            ))}
+            {/* Mobile: linha única horizontal */}
+            <div className="flex md:hidden gap-1">
+              {lines.map((line, i) => (
+                <span
+                  key={line}
+                  style={{
+                    fontSize: "clamp(2.4rem, 10vw, 3.2rem)",
+                    color: i === lines.length - 1 ? "var(--accent)" : "var(--text)",
+                  }}
+                >
+                  {line}
+                </span>
+              ))}
+            </div>
+            {/* Desktop: empilhado vertical */}
+            <div className="hidden md:block flex-shrink-0">
+              {lines.map((line, i) => (
+                <div
+                  key={line}
+                  style={{
+                    fontSize: "clamp(3.8rem, 7.5vw, 6.5rem)",
+                    color: i === lines.length - 1 ? "var(--accent)" : "var(--text)",
+                  }}
+                >
+                  {line}
+                </div>
+              ))}
+            </div>
           </motion.div>
 
           {/* ── Grid grudado, sem bordas individuais ── */}
           <motion.div
-            className="flex-1 rounded-2xl overflow-hidden"
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(4, 1fr)",
-              gap: "1px",
-              backgroundColor: "var(--border)",
-            }}
+            className="flex-1 rounded-2xl overflow-hidden grid grid-cols-3 md:grid-cols-4"
+            style={{ gap: "1px", backgroundColor: "var(--border)" }}
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}

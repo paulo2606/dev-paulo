@@ -30,7 +30,7 @@ export default function Hero() {
   const { t } = useLang();
 
   return (
-    <section id="hero" className="relative h-screen flex flex-col overflow-hidden pt-14 md:pt-0">
+    <section id="hero" className="relative min-h-screen md:h-screen flex flex-col overflow-hidden pt-14 md:pt-0">
 
       {/* Main content */}
       <motion.div

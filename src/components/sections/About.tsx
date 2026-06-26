@@ -7,7 +7,7 @@ export default function About() {
   const { t } = useLang();
 
   return (
-    <section id="about" className="h-screen overflow-hidden pt-16 md:pt-24 px-6 md:px-14 border-t border-[var(--border)] flex flex-col justify-center">
+    <section id="about" className="min-h-screen md:h-screen md:overflow-hidden pt-20 md:pt-24 px-6 md:px-14 border-t border-[var(--border)] flex flex-col justify-center">
       <div className="max-w-5xl mx-auto">
         <div className="relative mb-12">
           <span
