@@ -9,10 +9,8 @@ export const pt = {
   },
   hero: {
     greeting: "Olá, eu sou",
-    name: "Paulo Henrique",
     title: "Dev Fullstack",
-    subtitle:
-      "Construo APIs robustas, sistemas web e soluções que funcionam de verdade em produção.",
+    subtitle: "Construo APIs robustas, sistemas web e soluções que funcionam de verdade em produção.",
     cta: "Ver projetos",
     downloadCv: "Download CV",
     available: "Disponível para projetos",
@@ -21,16 +19,16 @@ export const pt = {
     title: "Sobre mim",
     badge: "// quem sou eu",
     text1:
-      "Sou um desenvolvedor de Pinhais, PR, apaixonado por código limpo e sistemas bem arquitetados. Comecei pelo back-end com C# e .NET, e fui expandindo pro universo do front-end com React e Next.js — o que me deu uma visão completa do que estou construindo.",
+      "Sou um desenvolvedor apaixonado por código limpo e sistemas bem arquitetados. Comecei pelo back-end com C# e .NET, e fui expandindo pro universo do front-end com React e Next.js, o que me deu uma visão completa do que estou construindo.",
     text2:
       "No estágio na BNE trabalhei com microserviços em produção, pipelines CI/CD no Azure DevOps e sistemas legados. Esse ambiente me ensinou a tomar decisões técnicas com impacto real, não só em ambiente de testes.",
     text3:
       "Fora do código, gosto de trilhas, futebol e muita música. Acredito que curiosidade constante é o que separa um dev que cresce de um que só entrega.",
     facts: [
-      { label: "Localização", value: "Pinhais, PR" },
-      { label: "Foco atual", value: "React & Next.js" },
-      { label: "Disponível para", value: "Freelance & CLT" },
+      { label: "Foco atual", value: "React, Next.js & .NET" },
+      { label: "Disponível para", value: "Freelance, CLT & PJ" },
       { label: "Inglês", value: "Leitura técnica" },
+      { label: "Localização", value: "Pinhais, PR" },
     ],
   },
   services: {
@@ -39,26 +37,22 @@ export const pt = {
     items: [
       {
         title: "APIs RESTful & Microserviços",
-        description:
-          "Criação de APIs robustas com C# e .NET, seguindo boas práticas de DDD e Clean Architecture.",
+        description: "Criação de APIs robustas com C# e .NET, seguindo boas práticas de DDD e Clean Architecture.",
         icon: "Server",
       },
       {
         title: "Sistemas Web Fullstack",
-        description:
-          "Do banco de dados ao front-end. React e Next.js no cliente, .NET ou Node no servidor.",
+        description: "Do banco de dados ao front-end. React e Next.js no cliente, .NET ou Node no servidor.",
         icon: "Monitor",
       },
       {
         title: "Banco de Dados",
-        description:
-          "Modelagem e otimização com SQL Server, PostgreSQL e MongoDB. Migrations, queries e integrações.",
+        description: "Modelagem e otimização com SQL Server, PostgreSQL e MongoDB. Migrations, queries e integrações.",
         icon: "Database",
       },
       {
         title: "Automações & Integrações",
-        description:
-          "Scripts, tarefas agendadas e integrações entre sistemas via API ou mensageria.",
+        description: "Scripts, tarefas agendadas e integrações entre sistemas via API ou mensageria.",
         icon: "Zap",
       },
     ],
@@ -101,7 +95,7 @@ export const pt = {
     title: "Habilidades",
     badge: "// stack técnica",
     categories: [
-      { name: "Linguagens", skills: ["C#", "SQL", "JavaScript", "TypeScript"] },
+      { name: "Linguagens", skills: ["C#", "Java", "SQL", "TypeScript"] },
       {
         name: "Frameworks",
         skills: ["ASP.NET Core", ".NET", "Blazor", "Razor Pages", "Entity Framework", "React", "Next.js"],
@@ -123,10 +117,10 @@ export const pt = {
     badge: "// em evolução",
     subtitle: "Tecnologias e conceitos que estou explorando agora",
     items: [
-      { name: "React", progress: 65, description: "Componentes, hooks, estado e padrões avançados" },
-      { name: "Next.js 16", progress: 50, description: "App Router, Server Components e deploy na Vercel" },
-      { name: "TypeScript", progress: 60, description: "Tipagem avançada, generics e boas práticas" },
-      { name: "Clean Architecture (.NET)", progress: 70, description: "Aprofundando DDD e separação de responsabilidades" },
+      { name: "React", progress: 35, description: "Componentes, hooks, estado e padrões avançados" },
+      { name: "Next.js 16", progress: 25, description: "App Router, Server Components e deploy na Vercel" },
+      { name: "TypeScript", progress: 45, description: "Tipagem avançada, generics e boas práticas" },
+      { name: "Clean Architecture (.NET)", progress: 55, description: "Aprofundando DDD e separação de responsabilidades" },
     ],
   },
   contact: {
@@ -138,6 +132,7 @@ export const pt = {
     messagePlaceholder: "Olá Paulo! Tenho um projeto interessante para você...",
     messageLabel: "Mensagem",
     sendBtn: "Enviar no WhatsApp",
+    emailBtn: "Enviar por e-mail",
     terminalTitle: "whatsapp-preview",
     terminalPrompt: "send-message --via whatsapp",
     terminalEmpty: "Preencha o formulário para ver o preview...",
@@ -145,8 +140,14 @@ export const pt = {
     fromLabel: "De",
   },
   footer: {
-    made: "Feito com",
-    by: "por Paulo Henrique",
-    rights: "Todos os direitos reservados.",
+    tagline: "Desenvolvendo soluções web com foco em qualidade, performance e código limpo.",
+    nav: "Navegação",
+    social: "Redes Sociais",
+    contactTitle: "Contato",
+    email: "paulohpereira@outlook.com.br",
+    location: "Pinhais, PR — Brasil",
+    available: "Aberto a oportunidades",
+    rights: "© 2026 Paulo Henrique Pereira. Todos os direitos reservados.",
+    made: "Feito com Next.js & Tailwind CSS",
   },
 };
