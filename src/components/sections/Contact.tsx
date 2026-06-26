@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { MessageCircle } from "lucide-react";
+import { MessageCircle, Mail } from "lucide-react";
 import { useLang } from "@/contexts/LangContext";
 
 const WHATSAPP = "5541998352918";
@@ -23,18 +23,34 @@ export default function Contact() {
     window.open(`https://wa.me/${WHATSAPP}?text=${text}`, "_blank");
   };
 
+  const handleEmail = () => {
+    if (!canSend) return;
+    const subject = encodeURIComponent(`${t.contact.previewHeader} — ${name}`);
+    const body = encodeURIComponent(`${t.contact.fromLabel}: ${name}\n\n${message}`);
+    window.location.href = `mailto:paulohpereira@outlook.com.br?subject=${subject}&body=${body}`;
+  };
+
   const now = new Date().toLocaleTimeString(lang === "pt" ? "pt-BR" : "en-US", {
     hour: "2-digit",
     minute: "2-digit",
   });
 
   return (
-    <section id="contact" className="py-24 px-6 border-t border-[var(--border)]">
+    <section id="contact" className="h-screen overflow-hidden pt-16 md:pt-24 px-6 md:px-14 border-t border-[var(--border)] flex flex-col justify-center">
       <div className="max-w-5xl mx-auto">
-        <span className="text-xs font-mono text-[var(--accent)]">{t.contact.badge}</span>
-        <h2 className="font-heading text-3xl font-bold text-[var(--text)] mt-2 mb-3">
-          {t.contact.title}
-        </h2>
+        <div className="relative mb-3">
+          <span
+            aria-hidden="true"
+            className="absolute -top-3 -left-1 font-heading font-black leading-none select-none pointer-events-none text-[var(--text)]"
+            style={{ fontSize: "clamp(5rem, 13vw, 8rem)", opacity: 0.04 }}
+          >
+            07
+          </span>
+          <span className="text-xs font-mono text-[var(--accent)]">{t.contact.badge}</span>
+          <h2 className="relative font-heading text-3xl font-bold text-[var(--text)] mt-2">
+            {t.contact.title}
+          </h2>
+        </div>
         <p className="text-[var(--muted)] text-sm mb-12">{t.contact.subtitle}</p>
 
         <div className="grid md:grid-cols-2 gap-8 items-start">
@@ -70,14 +86,24 @@ export default function Contact() {
                 className="w-full px-4 py-3 border border-[var(--border)] rounded-xl bg-transparent text-[var(--text)] placeholder:text-[var(--muted)]/50 focus:outline-none focus:border-[var(--accent)] transition-colors resize-none text-sm"
               />
             </div>
-            <button
-              onClick={handleSend}
-              disabled={!canSend}
-              className="w-full flex items-center justify-center gap-2 py-3.5 bg-[#25D366] hover:bg-[#1fb85a] disabled:opacity-40 disabled:cursor-not-allowed text-white font-semibold rounded-xl transition-colors duration-200 text-sm"
-            >
-              <MessageCircle size={16} />
-              {t.contact.sendBtn}
-            </button>
+            <div className="flex flex-col gap-3">
+              <button
+                onClick={handleSend}
+                disabled={!canSend}
+                className="w-full flex items-center justify-center gap-2 py-3.5 bg-[#25D366] hover:bg-[#1fb85a] disabled:opacity-40 disabled:cursor-not-allowed text-white font-semibold rounded-xl transition-colors duration-200 text-sm"
+              >
+                <MessageCircle size={16} />
+                {t.contact.sendBtn}
+              </button>
+              <button
+                onClick={handleEmail}
+                disabled={!canSend}
+                className="w-full flex items-center justify-center gap-2 py-3.5 border border-[var(--border)] hover:border-[var(--accent)] hover:text-[var(--accent)] disabled:opacity-40 disabled:cursor-not-allowed text-[var(--muted)] font-semibold rounded-xl transition-all duration-200 text-sm"
+              >
+                <Mail size={16} />
+                {t.contact.emailBtn}
+              </button>
+            </div>
           </motion.div>
 
           {/* Terminal preview */}

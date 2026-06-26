@@ -7,12 +7,21 @@ export default function Learning() {
   const { t } = useLang();
 
   return (
-    <section id="learning" className="py-24 px-6 border-t border-[var(--border)]">
+    <section id="learning" className="h-screen overflow-hidden pt-16 md:pt-24 px-6 md:px-14 border-t border-[var(--border)] flex flex-col justify-center">
       <div className="max-w-5xl mx-auto">
-        <span className="text-xs font-mono text-[var(--accent)]">{t.learning.badge}</span>
-        <h2 className="font-heading text-3xl font-bold text-[var(--text)] mt-2 mb-3">
-          {t.learning.title}
-        </h2>
+        <div className="relative mb-3">
+          <span
+            aria-hidden="true"
+            className="absolute -top-3 -left-1 font-heading font-black leading-none select-none pointer-events-none text-[var(--text)]"
+            style={{ fontSize: "clamp(5rem, 13vw, 8rem)", opacity: 0.04 }}
+          >
+            06
+          </span>
+          <span className="text-xs font-mono text-[var(--accent)]">{t.learning.badge}</span>
+          <h2 className="relative font-heading text-3xl font-bold text-[var(--text)] mt-2">
+            {t.learning.title}
+          </h2>
+        </div>
         <p className="text-[var(--muted)] text-sm mb-12">{t.learning.subtitle}</p>
 
         <div className="grid sm:grid-cols-2 gap-4">
