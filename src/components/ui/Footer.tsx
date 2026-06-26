@@ -7,7 +7,6 @@ import { GithubIcon, LinkedinIcon, InstagramIcon } from "@/components/ui/SocialI
 
 const navLinks = [
   { href: "#about", key: "about" },
-  { href: "#services", key: "services" },
   { href: "#experience", key: "experience" },
   { href: "#skills", key: "skills" },
   { href: "#projects", key: "projects" },

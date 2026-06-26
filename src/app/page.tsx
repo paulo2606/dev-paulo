@@ -21,7 +21,7 @@ export default function Page() {
         <Learning />
         <Contact />
       </main>
-      <div className="md:pr-72 hidden"><Footer /></div>
+      <div className="md:hidden"><Footer /></div>
     </>
   );
 }
