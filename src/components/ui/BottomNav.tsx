@@ -104,7 +104,7 @@ export default function BottomNav() {
 
       {/* ── Desktop: right sidebar ── */}
       <motion.aside
-        className="hidden md:flex fixed right-0 top-0 h-screen w-72 flex-col border-l border-[var(--border)] px-7 py-10 z-50 overflow-y-auto"
+        className="hidden md:flex fixed right-0 top-0 h-screen w-72 flex-col border-l border-[var(--border)] px-7 py-10 z-50"
         style={{ backgroundColor: "var(--bg)" }}
         initial={{ opacity: 0, x: 24 }}
         animate={{ opacity: 1, x: 0 }}
@@ -125,20 +125,20 @@ export default function BottomNav() {
                   <a
                     href={`#${id}`}
                     onClick={(e) => { e.preventDefault(); smoothScroll(id); }}
-                    className="relative flex items-center gap-3 group -mx-7 px-7 py-2 overflow-hidden"
+                    className="relative flex items-center gap-3 group -mx-7 px-7 py-2"
                   >
-                    {/* Sliding orange block — slides from right to left on hover */}
-                    <span className="absolute inset-0 bg-[var(--accent)] opacity-0 translate-x-3 group-hover:opacity-[0.09] group-hover:translate-x-0 transition-all duration-200 ease-out pointer-events-none" />
+                    {/* Bloco sólido: começa na borda e sangra para fora no hover */}
+                    <span className="absolute -left-6 right-0 top-0 bottom-0 bg-[var(--accent)] opacity-0 translate-x-6 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200 ease-out pointer-events-none" />
 
-                    <span className={`font-mono text-xs relative z-10 transition-all duration-200 ease-out group-hover:-translate-x-1 ${
-                      isActive ? "text-[var(--accent)]" : "text-[var(--muted)] group-hover:text-[var(--accent)]"
+                    <span className={`font-mono text-xs relative z-10 transition-all duration-200 ease-out group-hover:-translate-x-1 group-hover:text-black ${
+                      isActive ? "text-[var(--accent)]" : "text-[var(--muted)]"
                     }`}>
                       {num}
                     </span>
-                    <span className={`text-base font-medium relative z-10 transition-all duration-200 ease-out group-hover:-translate-x-1 border-b-2 pb-[1px] ${
+                    <span className={`text-base font-medium relative z-10 transition-all duration-200 ease-out group-hover:-translate-x-1 group-hover:text-black border-b-2 pb-[1px] ${
                       isActive
-                        ? "text-[var(--accent)] border-[var(--accent)]"
-                        : "text-[var(--text)] border-transparent group-hover:text-[var(--accent)]"
+                        ? "text-[var(--accent)] border-[var(--accent)] group-hover:border-black"
+                        : "text-[var(--text)] border-transparent"
                     }`}>
                       {label(id)}
                     </span>
