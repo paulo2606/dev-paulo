@@ -94,7 +94,7 @@ export default function Skills() {
   const lines = TITLE_LINES[lang];
 
   return (
-    <section id="skills" className="min-h-screen md:h-screen md:overflow-hidden pt-20 md:pt-24 px-6 md:px-14 border-t border-[var(--border)] flex flex-col justify-center pb-10 md:pb-0">
+    <section id="skills" className="min-h-screen md:h-screen md:overflow-hidden pt-20 md:pt-24 px-6 md:px-14 border-t border-[var(--border)] flex flex-col justify-center pb-16 md:pb-0">
       <div className="max-w-5xl mx-auto w-full">
 
         {/* Badge */}
