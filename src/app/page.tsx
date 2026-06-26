@@ -1,8 +1,7 @@
-import Navbar from "@/components/ui/Navbar";
+import BottomNav from "@/components/ui/BottomNav";
 import Footer from "@/components/ui/Footer";
 import Hero from "@/components/sections/Hero";
 import About from "@/components/sections/About";
-import Services from "@/components/sections/Services";
 import Experience from "@/components/sections/Experience";
 import Skills from "@/components/sections/Skills";
 import Projects from "@/components/sections/Projects";
@@ -12,18 +11,17 @@ import Contact from "@/components/sections/Contact";
 export default function Page() {
   return (
     <>
-      <Navbar />
-      <main>
+      <BottomNav />
+      <main className="md:pr-72">
         <Hero />
         <About />
-        <Services />
         <Experience />
         <Skills />
         <Projects />
         <Learning />
         <Contact />
       </main>
-      <Footer />
+      <div className="md:pr-72 hidden"><Footer /></div>
     </>
   );
 }
