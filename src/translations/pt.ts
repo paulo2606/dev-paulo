@@ -28,7 +28,6 @@ export const pt = {
       { label: "Foco atual", value: "React, Next.js & .NET" },
       { label: "Disponível para", value: "Freelance, CLT & PJ" },
       { label: "Inglês", value: "Leitura técnica" },
-      { label: "Localização", value: "Pinhais, PR" },
     ],
   },
   services: {

@@ -28,7 +28,6 @@ export const en = {
       { label: "Current focus", value: "React, Next.js & .NET" },
       { label: "Available for", value: "Freelance, Full-time & PJ" },
       { label: "English", value: "Technical reading" },
-      { label: "Location", value: "Pinhais, PR – Brazil" },
     ],
   },
   services: {

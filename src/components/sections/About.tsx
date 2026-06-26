@@ -31,9 +31,9 @@ export default function About() {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <p className="text-[var(--muted)] leading-[1.8]">{t.about.text1}</p>
-            <p className="text-[var(--muted)] leading-[1.8]">{t.about.text2}</p>
-            <p className="text-[var(--muted)] leading-[1.8]">{t.about.text3}</p>
+            <p className="text-[1.05rem] text-[var(--muted)] leading-[1.85]">{t.about.text1}</p>
+            <p className="text-[1.05rem] text-[var(--muted)] leading-[1.85]">{t.about.text2}</p>
+            <p className="text-[1.05rem] text-[var(--muted)] leading-[1.85]">{t.about.text3}</p>
           </motion.div>
 
           <motion.div
@@ -47,12 +47,12 @@ export default function About() {
               {t.about.facts.map((fact, i) => (
                 <div
                   key={fact.label}
-                  className={`flex justify-between items-center px-5 py-4 ${
+                  className={`flex justify-between items-center px-6 py-5 ${
                     i < t.about.facts.length - 1 ? "border-b border-[var(--border)]" : ""
                   }`}
                 >
-                  <span className="text-xs font-mono text-[var(--muted)]">{fact.label}</span>
-                  <span className="text-sm font-medium text-[var(--text)]">{fact.value}</span>
+                  <span className="text-sm font-mono text-[var(--muted)]">{fact.label}</span>
+                  <span className="text-base font-medium text-[var(--text)]">{fact.value}</span>
                 </div>
               ))}
             </div>
